@@ -53,6 +53,7 @@ endingCell: "M23", // Replace with your ending cell
 Authenticate to your AWS account, I use `aws-vault`.
 
 Deploy the infrastructure:
+
 ⚠️ It will create the real infrastructure on AWS ⚠️
 
 ```bash
