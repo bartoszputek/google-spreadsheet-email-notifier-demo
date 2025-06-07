@@ -1,0 +1,32 @@
+{
+  "name": "google-spreadsheet-email-notifier-demo",
+  "version": "1.0.0",
+  "description": "Sends email notifications about filled values in the Google Spreadsheet",
+  "author": "Bartosz Putek",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test:unit": "node tests/unit/*",
+    "test:integration": "node tests/integration/*",
+    "prebuild:infra": "cd infra && ./copy_files.sh",
+    "build:infra": "cd infra && sam build",
+    "test:infra": "cd infra && sam local invoke aws_lambda_function.google_spreadsheet_email_notifier_demo_lambda -e ../event.json",
+    "deploy:infra": "cd infra && terraform apply",
+    "format": "prettier --write . && terraform fmt infra"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.821.0",
+    "@aws-sdk/client-ses": "^3.821.0",
+    "google-auth-library": "^9.15.1",
+    "google-spreadsheet": "^4.1.4"
+  },
+  "devDependencies": {
+    "dotenv": "^16.5.0",
+    "prettier": "3.5.3"
+  },
+  "engines": {
+    "pnpm": ">=9.0.0",
+    "node": ">=22.0.0"
+  }
+}

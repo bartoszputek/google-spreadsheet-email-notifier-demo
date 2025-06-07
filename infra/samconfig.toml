@@ -1,0 +1,4 @@
+version = 0.1
+[default]
+[default.build.parameters]
+hook_name = "terraform"
